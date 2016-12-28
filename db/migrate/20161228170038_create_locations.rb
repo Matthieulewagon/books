@@ -3,7 +3,7 @@ class CreateLocations < ActiveRecord::Migration[5.0]
     create_table :locations do |t|
 
       t.string :campus
-      t.string :annee
+      t.string :year
 
       t.timestamps
     end
