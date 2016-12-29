@@ -1,4 +1,39 @@
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
+.homepage-content {
+  position: relative;
+  min-height: calc(100vh - 70px);
+  overflow: auto;
+  text-align: center;
+}
+
+.homepage-search {
+  position: absolute;
+  top: 240px;
+  z-index: 200;
+  width: 600px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  padding: 10px 0 30px;
+  box-shadow: 0px 0px 1px 15px rgba(255, 255, 255, 0.8);
+  border: 15px solid;
+}
+.homepage-search-input {
+  width: 400px !important;
+}
+
+
+.homepage-photo {
+  position: absolute;
+  background-size: cover !important;
+  top: 50%; left: 50%;
+  z-index: 100;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  // background: rgba(0,0,0, 0.5);
+  // filter: brightness(80%);
+  opacity: 1;
+
+}
