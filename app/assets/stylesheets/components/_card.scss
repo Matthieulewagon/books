@@ -1,0 +1,43 @@
+body {
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f7f7f7;
+}
+
+.card {
+  border-radius: 6px;
+  // background: #fff;
+  box-shadow: 2px 2px 2px 2px #E3E4E7;
+  height: 170px;
+  width: 750px;
+  padding: 20px;
+  margin-top: 15px;
+}
+
+.card-left {
+  padding: 0px;
+  float: left;
+}
+
+.full {
+  width: 100%;
+}
+
+.card-right {
+  float: right;
+    max-width: 565px;
+    min-width: 380px;
+}
+
+.tag-price {
+  float: right;
+}
+
+.span{
+ margin-left:10px;
+}
+
+.img-size {
+  height: 130px;
+  width: 130px;
+}
