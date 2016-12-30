@@ -8,12 +8,12 @@
              <img class="img-size" alt title src="http://lorempixel.com/850/850/?random=123" scale="0"></a>
         </div>
         <div class="card-right full">
-          <a class="text-bold text-title">"<%= book.title %>"</a>
+          <a class="text-title">"<%= book.title %>"</a>
           <div class="tag-price">
             <p><%= book.price %>€</p>
           </div>
             <p class="text-loaction"><span><%= book.campus %></span>
-            <span class="span"><%= book.year %></span></p>
+            <span class="span"><%= book.year %></span><span class="span">Created <%= time_ago_in_words(book.created_at) %> ago.</span></p>
             <p><%= book.description %></p>
         </div>
       </div>
