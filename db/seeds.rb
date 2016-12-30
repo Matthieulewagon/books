@@ -1,9 +1,20 @@
+user1 = User.create!(email: ".lombard@hotmail.be",
+                    password: "foobar",)
+Book.create!(picture: "",
+             price: "35$",
+             title: "Physics quantique deuxième",
+             description: "bonne état",
+             campus: "Saint Louis",
+             year: "2 année bac",
+             user_id: user1.id,
+  )
 Book.create!(picture: "",
              price: "35$",
              title: "Physics quantique deuxième",
              description: "bonne état",
              campus: "Louvain la Neuve",
-             year: "2 année bac"
+             year: "2 année bac",
+             user_id: user1.id,
   )
 
 Book.create!(picture: "",
@@ -11,14 +22,16 @@ Book.create!(picture: "",
              title: "Chimie première",
              description: "bonne état",
              campus: "Louvain la Neuve",
-             year: "1 année bac"
+             year: "1 année bac",
+             user_id: user1.id,
   )
 Book.create!(picture: "",
              price: "30$",
              title: "droit privé deuxième",
              description: "bonne état",
              campus: "Louvain la Neuve",
-             year: "2 année bac"
+             year: "2 année bac",
+             user_id: user1.id,
   )
 
 Book.create!(picture: "",
@@ -26,7 +39,8 @@ Book.create!(picture: "",
              title: "droit contitutionnelle deuxième",
              description: "bonne état",
              campus: "Louvain la Neuve",
-             year: "2 année bac"
+             year: "2 année bac",
+             user_id: user1.id,
   )
 
 Book.create!(picture: "",
@@ -34,5 +48,6 @@ Book.create!(picture: "",
              title: "droit contitutionnelle deuxième",
              description: "bonne état",
              campus: "Louvain la Neuve",
-             year: "1 année bac"
+             year: "1 année bac",
+             user_id: user1.id,
   )
