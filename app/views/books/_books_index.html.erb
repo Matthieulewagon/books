@@ -1,5 +1,26 @@
 <div class="container">
   <div class="row">
+  <div class="col l4 search-books">
+
+
+    <span><%= simple_form_for Book.new,  url: books_path , :method => :get do |f| %>
+    <%= f.input :title, :autofocus => true, placeholder: "Taper le nom du livre recherché"%></span>
+
+    <span><%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
+    <%= f.select :campus,
+          [@books[0].campus]
+          %></span>
+    <span><%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
+    <%= f.select :year,
+         [@books[0].year]%></span>
+
+
+  <span class="btn-search"><%= f.submit "Search", class: "btn btn-home"%></span>
+  </div>
+  <% end %>
+  <% end %>
+  <% end %>
+  </div>
     <!-- <div class="col-md-6"> -->
     <% @books.each do |book| %>
       <div class="card">
@@ -8,12 +29,12 @@
              <img class="img-size" alt title src="http://lorempixel.com/850/850/?random=123" scale="0"></a>
         </div>
         <div class="card-right full">
-          <a class="text-bold text-title">"<%= book.title %>"</a>
+          <a class="text-title">"<%= book.title %>"</a>
           <div class="tag-price">
             <p><%= book.price %>€</p>
           </div>
             <p class="text-loaction"><span><%= book.campus %></span>
-            <span class="span"><%= book.year %></span></p>
+            <span class="span"><%= book.year %></span><span class="span">Created <%= time_ago_in_words(book.created_at) %> ago.</span></p>
             <p><%= book.description %></p>
         </div>
       </div>
