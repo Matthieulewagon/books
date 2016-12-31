@@ -1,5 +1,26 @@
 <div class="container">
   <div class="row">
+  <div class="col l4 search-books">
+
+
+    <span><%= simple_form_for Book.new,  url: books_path , :method => :get do |f| %>
+    <%= f.input :title, :autofocus => true, placeholder: "Taper le nom du livre recherché"%></span>
+
+    <span><%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
+    <%= f.select :campus,
+          [@books[0].campus]
+          %></span>
+    <span><%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
+    <%= f.select :year,
+         [@books[0].year]%></span>
+
+
+  <span class="btn-search"><%= f.submit "Search", class: "btn btn-home"%></span>
+  </div>
+  <% end %>
+  <% end %>
+  <% end %>
+  </div>
     <!-- <div class="col-md-6"> -->
     <% @books.each do |book| %>
       <div class="card">
