@@ -47,6 +47,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.save!
+    raise
   end
 
   def edit
