@@ -8,7 +8,7 @@
     <span><%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
       <% if @books[0] != nil %>
       <%= f.select :campus,
-          [@books[0].campus]
+          [@books[0].campus, "Louvain la Neuve", "Saint Louis", "ULB" ]
           %></span>
       <% else%>
       <%= f.select :campus,
@@ -17,7 +17,7 @@
     <span><%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
       <% if @books[0] != nil %>
       <%= f.select :year,
-         [@books[0].year]%></span>
+         [@books[0].year, "1 année bac", "2 année bac", "3 année bac", "1 année master", "2 année master" ]%></span>
       <% else%>
       <%= f.select :year,
           ["1 année bac", "2 année bac", "3 année bac", "1 année master", "2 année master"],

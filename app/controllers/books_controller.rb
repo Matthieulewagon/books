@@ -43,11 +43,17 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
   end
+  # @book = Book.new.update_attributes(description: params[:book][:description], title: params[:book][:title], price: params[:book][:price], campus: params[:book][:campus], year: params[:book][:year], user_id: current_user.id)
 
   def create
     @book = Book.new(book_params)
+    @book.user = current_user
     @book.save!
-    raise
+    if @book.save
+      redirect_to books_path(@book)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -60,6 +66,7 @@ class BooksController < ApplicationController
   end
 
   def book_params
-      params.require(:book).permit(:description, :title,  :price, :picture, :campus, :year)
+      params.require(:book).permit(:user_id, :description, :title,  :price, :picture, :campus, :year)
   end
+
 end
