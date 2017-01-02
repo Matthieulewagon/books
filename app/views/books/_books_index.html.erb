@@ -35,8 +35,7 @@
     <% @books.each do |book| %>
       <div class="card">
         <div class="card-left">
-          <a href="http://lorempixel.com/850/850/?random=123">
-             <img class="img-size" alt title src="http://lorempixel.com/850/850/?random=123" scale="0"></a>
+          <%= cl_image_tag book.picture, height: 130, width: 130, crop: :fill %>
         </div>
         <div class="card-right full">
           <a class="text-title">"<%= book.title %>"</a>
