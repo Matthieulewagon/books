@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only: [:new]
   def index
  @books = Book.all
       if params[:book].present?
@@ -40,9 +41,19 @@ class BooksController < ApplicationController
   end
 
   def new
+    @book = Book.new
   end
+  # @book = Book.new.update_attributes(description: params[:book][:description], title: params[:book][:title], price: params[:book][:price], campus: params[:book][:campus], year: params[:book][:year], user_id: current_user.id)
 
   def create
+    @book = Book.new(book_params)
+    @book.user = current_user
+    @book.save!
+    if @book.save
+      redirect_to books_path(@book)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -53,4 +64,9 @@ class BooksController < ApplicationController
 
   def destroy
   end
+
+  def book_params
+      params.require(:book).permit(:user_id, :description, :title,  :price, :picture, :campus, :year)
+  end
+
 end
