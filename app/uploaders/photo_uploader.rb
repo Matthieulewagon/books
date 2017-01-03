@@ -10,11 +10,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
-  process convert: 'jpg'
+  # process convert: 'jpg'
 
-  version :standard do
-    resize_to_fit 130, 130
-  end
+  # version :standard do
+  #   resize_to_fit 130, 130
+  # end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:

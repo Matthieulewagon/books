@@ -10,7 +10,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :campus, :gsm])
   end
 
-  def product_params
-    params.require(:book).permit(:campus, :description, :price, :year, :tilte, :picture, :picture_cache)
-  end
 end

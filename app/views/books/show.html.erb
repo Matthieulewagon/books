@@ -1,2 +1,15 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="container">
+  <div class="show">
+    <div class="show-left">
+      <%= cl_image_tag @book.picture, height: 350, width: 350, crop: :fill %>
+    </div>
+  <div class="show-right full">
+    <p class="show-text-title"><%= @book.title %></p>
+      <div class="show-tag-price"><p><%= @book.price %>€</p></div>
+        <p class="show-text-loaction">
+          <span class="span-first"><%= @book.campus %></span>
+          <span class="span"><%= @book.year %></span><span class="span">Created <%= time_ago_in_words(@book.created_at) %> ago.</span></p>
+        <p class="show-margin-top"><%= @book.description %></p>
+      </div>
+  </div>
+</div>
