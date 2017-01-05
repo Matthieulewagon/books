@@ -13,6 +13,8 @@
     <%= f.input :title, required: true, label: "Titre", placeholder: "Titre du livre ex: 'droit constitutionelle'", required: true%>
     <%= f.input :description, required: true, label: "Etat", placeholder: "Description courte de l'état du livre"%>
     <%= f.input :price, required: true, label: "Prix", placeholder: "Prix du livre, ex: 35"%>
+    <%= f.input :picture %>
+    <%= f.input :picture_cache, as: :hidden %>
     </div>
 
 
