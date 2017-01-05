@@ -1,29 +1,36 @@
 <div class="container">
-  <div class="show">
-    <div class="show-left">
-      <%= cl_image_tag @book.picture, height: 350, width: 350, crop: :fill %>
-    </div>
-  <div class="show-right full">
-    <p class="show-text-title"><%= @book.title %></p>
-      <div class="show-tag-price"><p><%= @book.price %>€</p></div>
-        <p class="show-text-loaction">
-          <span class="span-first"><%= @book.campus %></span>
-          <span class="span"><%= @book.year %></span><span class="span">Created <%= time_ago_in_words(@book.created_at) %> ago.</span></p>
-        <p class="show-margin-top"><%= @book.description %></p>
-        <div class="card-request">
-          <div class="card-left">
-            <%= cl_image_tag @book.picture, height: 130, width: 130, crop: :fill %>
-          </div>
-        <div class="card-request-right full">
-          <p class="show-text-title"><%= @book.title %></p>
-          <div class="tag-price">
-            <p><%= @book.price %>€</p>
-          </div>
-            <p class="text-loaction"><span><%= @book.campus %></span>
+  <div class="row">
+    <div class="col-xs-12 col-lg-6">
+      <div class="show-1">
+        <p class="show-text-title">
+          <span><%= @book.title %></span>
+          <span class="show-tag-price"><%= @book.price %>€</span></p>
+          <p class="show-text-loaction">
+            <span class="span-first"><%= @book.campus %></span>
             <span class="span"><%= @book.year %></span><span class="span">Created <%= time_ago_in_words(@book.created_at) %> ago.</span></p>
-            <p><%= @book.description %></p>
+            <div class="show-left">
+              <div class="img-cover"> <%= cl_image_tag @book.picture, height: 350, width: 350, crop: :fill %></div>
+              <p class="show-margin-top"><%= @book.description %></p>
+            </div>
+          </div>
         </div>
+
+        <div class="col-xs-12 col-lg-6">
+          <div class="show-2">
+            <div class="card-request-right full">
+              <p class="show-text-title"><%= "Envoye un requete" %></p>
+              <div class="tag-price">
+                <p><%= "pour ce livre à "%><%= " "%><%= @book.price %>€</p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-6">
+          <div class="show-2">
+          <p class="show-text-title">
+          <span><%= "Nom du vendeur" %></span>
+          </div>
+          </div>
       </div>
     </div>
-  </div>
-</div>
+
