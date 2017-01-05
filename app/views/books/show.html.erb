@@ -10,6 +10,20 @@
           <span class="span-first"><%= @book.campus %></span>
           <span class="span"><%= @book.year %></span><span class="span">Created <%= time_ago_in_words(@book.created_at) %> ago.</span></p>
         <p class="show-margin-top"><%= @book.description %></p>
+        <div class="card-request">
+          <div class="card-left">
+            <%= cl_image_tag @book.picture, height: 130, width: 130, crop: :fill %>
+          </div>
+        <div class="card-request-right full">
+          <p class="show-text-title"><%= @book.title %></p>
+          <div class="tag-price">
+            <p><%= @book.price %>€</p>
+          </div>
+            <p class="text-loaction"><span><%= @book.campus %></span>
+            <span class="span"><%= @book.year %></span><span class="span">Created <%= time_ago_in_words(@book.created_at) %> ago.</span></p>
+            <p><%= @book.description %></p>
+        </div>
       </div>
+    </div>
   </div>
 </div>
