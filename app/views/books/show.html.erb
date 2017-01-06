@@ -9,7 +9,7 @@
             <span class="span-first"><%= @book.campus %></span>
             <span class="span"><%= @book.year %></span><span class="span">Created <%= time_ago_in_words(@book.created_at) %> ago.</span></p>
             <div class="show-left">
-              <div class="img-cover"> <%= cl_image_tag @book.picture, height: 350, width: 350, crop: :fill %></div>
+              <div class="img-cover"><%= cl_image_tag @book.picture, height: 350, width: 350 %></div>
               <p class="show-margin-top"><%= @book.description %></p>
             </div>
           </div>
