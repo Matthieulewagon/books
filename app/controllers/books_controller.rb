@@ -1,50 +1,36 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   def index
-   @books = Book.all
-   if params[:book].present?
-    if params[:book][:title].present?
-      @books = @books.where(title: params[:book][:title])
-    end
-    if params[:book][:year].present?
-      @books = @books.where(year: params[:book][:year])
-    end
-    if params[:book][:campus].present?
-     @books = @books.where(campus: params[:book][:campus])
-   end
-
-
- end
-       # return @books
-       # raise
-       if params[:query].present?
+    @books = Book.all
+    if params[:book].present? || params[:query].present?
+      if params[:query].present?
         # raise
-        @books = Book.search(params[:query], page: params[:page])
-           # if params[:book].present?
-           #   if params[:book][:year].present?
-           #      @books = @books.where(year: params[:book][:year])
-           #   end
-           #   if params[:book][:campus].present?
-           #     @books = @books.where(campus: params[:book][:campus])
-
-           #   end
-           # end
-           # raise
-         end
-      # else
-      #   @books = Book.all
-
-
+        books_id = Book.search(params[:query], page: params[:page])
+        @books = books_id.each do |book_id|
+          book_id.id
+        end
+      end
+      if params[:book][:year].present?
+        @books = @books.select do |book|
+          book if book[:year] == params[:book][:year]
+        end
+      end
+      if params[:book][:campus].present?
+        @books = @books.select do |book|
+          book if book[:campus] == params[:book][:campus]
+        end
+      end
     end
+  end
 
-    def show
-      @book = Book.find(params[:id])
-      @user = User.find @book.user_id
-    end
+  def show
+    @book = Book.find(params[:id])
+    @user = User.find @book.user_id
+  end
 
-    def new
-      @book = Book.new
-    end
+  def new
+    @book = Book.new
+  end
   # @book = Book.new.update_attributes(description: params[:book][:description], title: params[:book][:title], price: params[:book][:price], campus: params[:book][:campus], year: params[:book][:year], user_id: current_user.id)
 
   def create
@@ -65,6 +51,10 @@ class BooksController < ApplicationController
   end
 
   def destroy
+  end
+
+  def autocomplete
+    render json: Book.search(params[:query], autocomplete: true, limit: 10).map(&:title)
   end
 
   def book_params

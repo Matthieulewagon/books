@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
 gem 'rails_12factor', group: :production
+gem 'coffee-rails', '~> 4.2.1'
 
 
 gem 'sass-rails'
@@ -20,6 +21,8 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'cloudinary', '1.1.0'
 gem 'carrierwave'
+gem 'searchkick', '~> 1.3'
+
 
 group :development, :test do
   gem 'binding_of_caller'

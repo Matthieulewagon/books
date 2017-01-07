@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :books, only: [:destroy]
   end
 
-  resources :books, only: [:show, :edit, :update, :new, :create, :index]
+  resources :books, only: [:show, :edit, :update, :new, :create, :index] do
+    #   get :autocomplete # <= add this line
+    # end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
