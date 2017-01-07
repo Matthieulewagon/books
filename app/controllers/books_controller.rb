@@ -7,30 +7,30 @@ class BooksController < ApplicationController
         # raise
         books_id = Book.search(params[:query], page: params[:page])
         @books = books_id.each do |book_id|
-        book_id.id
+          book_id.id
         end
       end
       if params[:book][:year].present?
-        @books.each do |book|
-        @books << book if book.year == params[:book][:year]
+        @books = @books.select do |book|
+          book if book[:year] == params[:book][:year]
         end
       end
       if params[:book][:campus].present?
-        @books.each do |book|
-        @books << book if book.campus == params[:book][:campus]
+        @books = @books.select do |book|
+          book if book[:campus] == params[:book][:campus]
         end
       end
     end
   end
 
-    def show
-      @book = Book.find(params[:id])
-      @user = User.find @book.user_id
-    end
+  def show
+    @book = Book.find(params[:id])
+    @user = User.find @book.user_id
+  end
 
-    def new
-      @book = Book.new
-    end
+  def new
+    @book = Book.new
+  end
   # @book = Book.new.update_attributes(description: params[:book][:description], title: params[:book][:title], price: params[:book][:price], campus: params[:book][:campus], year: params[:book][:year], user_id: current_user.id)
 
   def create
@@ -51,6 +51,10 @@ class BooksController < ApplicationController
   end
 
   def destroy
+  end
+
+  def autocomplete
+    render json: Book.search(params[:query], autocomplete: true, limit: 10).map(&:title)
   end
 
   def book_params

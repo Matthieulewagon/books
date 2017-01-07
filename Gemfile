@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
 gem 'rails_12factor', group: :production
+gem 'coffee-rails', '~> 4.2.1'
 
 
 gem 'sass-rails'

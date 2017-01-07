@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
   belongs_to :user
-  searchkick
+  searchkick searchable: [:title], autocomplete: ['title']
   mount_uploader :picture, PhotoUploader
 end
