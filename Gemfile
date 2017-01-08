@@ -19,9 +19,10 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
-gem 'cloudinary', '1.1.0'
 gem 'carrierwave'
+gem 'cloudinary', '1.1.0'
 gem 'searchkick', '~> 1.3'
+gem 'bonsai-elasticsearch-rails'
 
 
 group :development, :test do
