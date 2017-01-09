@@ -37,7 +37,7 @@
                 <%= cl_image_tag book.picture, height: 130, width: 130, crop: :fill %>
               </div>
               <div class="card-right full">
-                <a class="text-title"><%= link_to book.title, book_path(book) %></a>
+                <a class="text-title"><%= link_to book.title, new_user_book_request_path(@user, book) %></a>
                 <div class="tag-price">
                   <p><%= book.price %>€</p>
                 </div>

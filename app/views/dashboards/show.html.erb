@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-lg-6">
+      <p class="show-text-title"><%= "Requête reçue à vous de jouer!" %></p>
+      <% @requests_seller.each do |request| %>
+      <div class="show-3">
+        <p><%= request.description %></p>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-lg-6">
+      <p class="show-text-title"><%= "Requête envoyé en attente d'une reponse" %></p>
+      <% @requests_buyer.each do |request| %>
+      <div class="show-3">
+        <p><%= request.description %></p>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
