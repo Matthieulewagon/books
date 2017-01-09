@@ -8,8 +8,10 @@
     <a><%=link_to "Sign Up",new_user_registration_path, class: "navbar-brand"%></a>
     <a><%=link_to "Log In",new_user_session_path, class: "navbar-brand"%></a>
     <% end %>
+
     <% if user_signed_in?%>
     <a><%=link_to "Vends tes Livres!",new_book_path, class: "navbar-brand"%></a>
+    <a><%=link_to "ton dashboard",dashboard_path, class: "navbar-brand"%></a>
     <a><%= link_to 'logout', destroy_user_session_path,class: "navbar-brand", method: :delete %></a>
     <% end %>
   </div>
@@ -24,8 +26,11 @@
     <a><%=link_to "Sign Up",new_user_registration_path, class: "navbar-brand"%></a>
     <a><%=link_to "Log In",new_user_session_path, class: "navbar-brand"%></a>
     <% end %>
+
     <% if user_signed_in?%>
     <a><%=link_to "Vends tes Livres!",new_book_path, class: "navbar-brand"%></a>
+    <a><%=link_to "ton dashboard",dashboard_path, class: "navbar-brand"%></a>
+
     <a><%= link_to 'logout', destroy_user_session_path,class: "navbar-brand", method: :delete %></a>
     <% end %>
   </div>

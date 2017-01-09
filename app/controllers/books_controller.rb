@@ -21,6 +21,9 @@ class BooksController < ApplicationController
         end
       end
     end
+    @books = @books.each do |book|
+      @user = User.find(book.user_id)
+    end
   end
 
   def show
