@@ -5,6 +5,8 @@
       <% @requests_seller.each do |request| %>
       <div class="show-3">
         <p><%= request.description %></p>
+        <p><%= request.contact %></p>
+
       </div>
       <% end %>
     </div>
@@ -13,6 +15,7 @@
       <% @requests_buyer.each do |request| %>
       <div class="show-3">
         <p><%= request.description %></p>
+        <p><%= request.contact %></p>
       </div>
       <% end %>
     </div>

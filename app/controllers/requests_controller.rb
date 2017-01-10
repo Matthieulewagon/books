@@ -12,6 +12,7 @@ class RequestsController < ApplicationController
     @request.update_attributes(book_id: params[:book_id], seller_id: params[:user_id], description: params[:request][:description], contact: params[:request][:contact] , buyer_id: current_user.id)
     @request.save!
 
+
     redirect_to books_path
   end
 

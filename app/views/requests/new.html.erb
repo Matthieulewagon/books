@@ -22,9 +22,33 @@
             <div class="form-group">
               <%= f.input :description, required: true, label: false%>
             </div>
+            <% if user_signed_in? %>
+            <% if current_user.gsm != nil %>
+            <div>
+
+              <%= f.check_box :contact, :value => current_user.gsm %>
+
+            </div>
+            <% end %>
+            <div>
+              <%= f.check_box :contact, value: "2" %>
+              <%= label_tag(:contact, "email") %>
+
+            </div>
+            <% end %>
+            <% if !user_signed_in? %>
+            <div>
+              <%= check_box_tag(:contact) %>
+              <%= label_tag(:contact, "gsm") %>
+            </div>
+            <div>
+              <%= check_box_tag(:contact) %>
+              <%= label_tag(:contact, "email") %>
+            </div>
+            <% end %>
             <div class="form-actions form-margin">
-    <%= f.button :submit, "send" %>
-  </div>
+              <%= f.button :submit, "send", class: "btn btn-darkgreen" %>
+            </div>
             <% end %>
           </div>
         </div>

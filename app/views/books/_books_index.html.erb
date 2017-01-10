@@ -2,9 +2,10 @@
   <div class="row">
     <div class="col-xs-12 col-lg-5 search-books">
 
-      <span><%= simple_form_for Book.new,  url: books_path , :method => :get do |f| %>
-        <div class="padding-right"><%= text_field_tag :query, params[:query], :autofocus => true, placeholder: "Taper le nom du livre recherché", class: "padding-right"%></div></span>
-        <span><%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
+      <%= simple_form_for Book.new,  url: books_path , :method => :get do |f| %>
+        <span><div class="padding-right"><%= text_field_tag :query, params[:query], :autofocus => true, placeholder: "Taper le nom du livre recherché", class: "padding-right"%></div></span>
+
+        <span>
           <% if @books[0] != nil %>
           <%= f.select :campus,
           [@books[0].campus, "Louvain la Neuve", "Saint Louis", "ULB" ]
@@ -25,7 +26,6 @@
 
 
             <span class="btn-search"><%= f.submit "Search", class: "btn btn-darkgreen"%></span>
-            <% end %>
             <% end %>
             <% end %>
           </div>
