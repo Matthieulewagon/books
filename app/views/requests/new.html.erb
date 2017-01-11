@@ -23,27 +23,37 @@
               <%= f.input :description, required: true, label: false%>
             </div>
             <% if user_signed_in? %>
+            <% if current_user.facebook != "" %>
+            <div>
+              <%= f.check_box :facebook, {}, value=current_user.facebook%>
+              <%= label_tag(:facebook, "facebook") %>
+            </div>
+            <% end %>
+            <% if current_user.whatsapp != "" %>
+            <div>
+              <%= f.check_box :whatsapp, {}, value=current_user.whatsapp%>
+              <%= label_tag(:whatsapp, "whatsapp") %>
+            </div>
+            <% end %>
             <% if current_user.gsm != nil %>
             <div>
-
-              <%= f.check_box :contact, :value => current_user.gsm %>
-
+              <%= f.check_box :gsm, {}, value=current_user.gsm%>
+              <%= label_tag(:gsm, "gsm") %>
             </div>
             <% end %>
             <div>
-              <%= f.check_box :contact, value: "2" %>
-              <%= label_tag(:contact, "email") %>
-
+              <%= f.check_box :email, {}, value=current_user.email%>
+              <%= label_tag(:email, "email") %>
             </div>
             <% end %>
             <% if !user_signed_in? %>
             <div>
-              <%= check_box_tag(:contact) %>
-              <%= label_tag(:contact, "gsm") %>
+              <%= check_box_tag(:gsm) %>
+              <%= label_tag(:gsm, "gsm") %>
             </div>
             <div>
-              <%= check_box_tag(:contact) %>
-              <%= label_tag(:contact, "email") %>
+              <%= check_box_tag(:email) %>
+              <%= label_tag(:email, "email") %>
             </div>
             <% end %>
             <div class="form-actions form-margin">

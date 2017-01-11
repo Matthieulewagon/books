@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170108213810) do
+ActiveRecord::Schema.define(version: 20170111140947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,10 @@ ActiveRecord::Schema.define(version: 20170108213810) do
     t.integer  "book_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "facebook"
+    t.string   "whatsapp"
+    t.integer  "gsm"
+    t.string   "email"
     t.index ["book_id"], name: "index_requests_on_book_id", using: :btree
     t.index ["buyer_id"], name: "index_requests_on_buyer_id", using: :btree
     t.index ["seller_id"], name: "index_requests_on_seller_id", using: :btree
@@ -58,6 +62,8 @@ ActiveRecord::Schema.define(version: 20170108213810) do
     t.string   "last_name"
     t.string   "campus"
     t.integer  "gsm"
+    t.string   "facebook"
+    t.string   "whatsapp"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

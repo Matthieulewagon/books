@@ -9,7 +9,7 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new
-    @request.update_attributes(book_id: params[:book_id], seller_id: params[:user_id], description: params[:request][:description], contact: params[:request][:contact] , buyer_id: current_user.id)
+    @request.update_attributes(book_id: params[:book_id], seller_id: params[:user_id], description: params[:request][:description], contact: params[:request][:contact], facebook: params[:request][:facebook], whatsapp: params[:request][:whatsapp], gsm: params[:request][:gsm] , buyer_id: current_user.id)
     @request.save!
 
 
@@ -20,19 +20,22 @@ class RequestsController < ApplicationController
   end
 
   def destroy
-  end
+   @request = Request.find(params[:id])
+   @request.destroy
+   redirect_to dashboard_path(current_user)
+ end
 
-  def request_params
-      params.require(:request).permit(:description, :contact,  :buyer_id, :seller_id, :book_id)
-  end
+ def request_params
+  params.require(:request).permit(:description, :contact, :gsm, :facebook, :whatsapp, :buyer_id, :seller_id, :book_id)
+end
 
-  def book_params
-    params.require(:book).permit(:user_id, :description, :title,  :price, :picture, :campus, :year, :picture_cache)
-  end
+def book_params
+  params.require(:book).permit(:user_id, :description, :title,  :price, :picture, :campus, :year, :picture_cache)
+end
 
-  def if_not_sign_up
-    if !user_signed_in?
-      redirect_to new_user_registration_path
-    end
+def if_not_sign_up
+  if !user_signed_in?
+    redirect_to new_user_registration_path
   end
+end
 end
