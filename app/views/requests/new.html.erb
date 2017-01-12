@@ -23,13 +23,13 @@
               <%= f.input :description, required: true, label: false%>
             </div>
             <% if user_signed_in? %>
-            <% if current_user.facebook != "" %>
+            <% if current_user.facebook != "on" %>
             <div>
               <%= f.check_box :facebook, {}, value=current_user.facebook%>
               <%= label_tag(:facebook, "facebook") %>
             </div>
             <% end %>
-            <% if current_user.whatsapp != "" %>
+            <% if current_user.whatsapp != "on" %>
             <div>
               <%= f.check_box :whatsapp, {}, value=current_user.whatsapp%>
               <%= label_tag(:whatsapp, "whatsapp") %>
