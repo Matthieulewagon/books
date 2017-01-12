@@ -40,7 +40,7 @@
       <% if request.email != nil %>
       <span class="span"><%= "email:" + " "%><%= request.email %></span>
       <% end %></p>
-      <%= link_to user_book_request_path(current_user, request), method: :delete do %>delete<% end %>
+      <%= link_to user_book_request_path(current_user, @book, request), method: :delete do %>delete<% end %>
     </div>
     <% end %>
   </div>

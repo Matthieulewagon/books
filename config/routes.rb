@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :books, only: [:show, :edit, :update, :new, :create, :index] do
+  resources :books, only: [:show, :edit, :update, :new, :create, :index, :destroy] do
     #   get :autocomplete # <= add this line
     # end
   end
