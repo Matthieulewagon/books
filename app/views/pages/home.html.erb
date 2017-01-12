@@ -1,5 +1,28 @@
-<div class="homepage-content">
-  <div class="homepage-photo center-block" style="background-image: url('https://static.pexels.com/photos/94356/pexels-photo-94356.jpeg');">
+<div class="homepage-content ">
+  <div class="homepage-photo center-block hidden-xs" style="background-image: url('https://static.pexels.com/photos/94356/pexels-photo-94356.jpeg');">
+
+    <h1 class="head-home hidden-xs">Optimise ton temps et ton argent sur SweatDeal la platforme de livres etudiants! </h1>
+    <h5 class="head-home-xs visible-xs">Optimise ton temps et ton argent sur SweatDeal la platforme de livres etudiants! </h5>
+
+    <div class="row">
+  <div class="col l4">
+    <%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
+    <%= f.select :campus,
+          ["Louvain la Neuve", "Saint Louis", "ULB"],
+          include_blank: 'Choisis ton Campus' %>
+    <%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
+    <%= f.select :year,
+          ["1 année bac", "2 année bac", "3 année bac", "1 année master", "2 année master"],
+          include_blank: "Choisis l'année" %>
+    <%= f.submit "Search", class: 'btn btn-home' %>
+    <% end %>
+    <% end %>
+  </div>
+  </div>
+  </div>
+  <div class="homepage-photo2 center-block visible-xs" style="background-image: url(/assets/dawn.jpg);">
+  <!-- /assets/dawn.jpg -->
+
 
     <h1 class="head-home hidden-xs">Optimise ton temps et ton argent sur SweatDeal la platforme de livres etudiants! </h1>
     <h5 class="head-home-xs visible-xs">Optimise ton temps et ton argent sur SweatDeal la platforme de livres etudiants! </h5>
@@ -21,5 +44,3 @@
   </div>
   </div>
 </div>
-<!-- user_books_path -->
-
