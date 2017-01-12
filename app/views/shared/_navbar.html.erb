@@ -17,9 +17,10 @@
   </div>
 </nav>
 
-<nav class="navbar visible-xs navbar-default">
+<nav class="navbar visible-xs navbar-default navbar-responsiv">
   <div class="navbar-header">
     <a><%=link_to "SweatDeal",root_path, class: "navbar-brand"%></a>
+    <a><%= link_to 'logout', destroy_user_session_path,class: "navbar-brand navbar-responsiv-marg", method: :delete %></a>
   </div>
   <div class="navbar-header navbar-right">
     <% if !user_signed_in?%>
@@ -31,7 +32,6 @@
     <a><%=link_to "Vends tes Livres!",new_book_path, class: "navbar-brand"%></a>
     <a><%=link_to "ton dashboard",dashboard_path, class: "navbar-brand"%></a>
 
-    <a><%= link_to 'logout', destroy_user_session_path,class: "navbar-brand", method: :delete %></a>
     <% end %>
   </div>
 </nav>

@@ -30,13 +30,36 @@
           <% end %>
         </div>
 
-        <div class="col-xs-12 col-md-8">
+        <div class="col-xs-12 col-md-8 hidden-xs">
           <% @books.each do |book| %>
           <div class="card">
             <div class="card-left">
               <%= cl_image_tag book.picture, height: 130, width: 130, crop: :fill %>
             </div>
             <div class="card-right full">
+              <a class="text-title"><%= link_to book.title, new_user_book_request_path(@user, book) %></a>
+              <div class="tag-price">
+                <p><%= book.price %>€</p>
+              </div>
+              <p class="text-loaction"><span><%= book.campus %></span>
+                <span class="span"><%= book.year %></span><span class="span">Created <%= time_ago_in_words(book.created_at) %> ago.</span></p>
+                <p><%= book.description %></p>
+                <% if user_signed_in?%>
+                <% if book.user_id == current_user.id %>
+                  <%= link_to "delete", book_path(book), method: :delete %>
+                <% end %>
+                <% end %>
+              </div>
+            </div>
+            <% end %>
+          </div>
+          <div class="col-xs-12 col-md-8 visible-xs">
+          <% @books.each do |book| %>
+          <div class="card">
+            <div class="card-left">
+              <%= cl_image_tag book.picture, height: 130, width: 130, crop: :fill %>
+            </div>
+            <div class="card-right-phone">
               <a class="text-title"><%= link_to book.title, new_user_book_request_path(@user, book) %></a>
               <div class="tag-price">
                 <p><%= book.price %>€</p>
