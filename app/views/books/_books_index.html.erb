@@ -44,8 +44,10 @@
               <p class="text-loaction"><span><%= book.campus %></span>
                 <span class="span"><%= book.year %></span><span class="span">Created <%= time_ago_in_words(book.created_at) %> ago.</span></p>
                 <p><%= book.description %></p>
+                <% if user_signed_in?%>
                 <% if book.user_id == current_user.id %>
                   <%= link_to "delete", book_path(book), method: :delete %>
+                <% end %>
                 <% end %>
               </div>
             </div>
