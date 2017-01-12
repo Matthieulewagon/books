@@ -28,10 +28,10 @@
     <div class="show-3">
       <p><%= request.description %></p>
       <p><%= "En attente, vous avez partagé:" %></p>
-      <p><% if request.facebook != nil && != "on" %>
+      <p><% if request.facebook != nil && "on" %>
       <span><%= link_to "facebook", request.facebook %></span>
       <% end %>
-      <% if request.whatsapp != nil && != "on" %>
+      <% if request.whatsapp != nil && "on" %>
       <span class="span"><%= request.whatsapp %></span>
       <% end %>
       <% if request.gsm != nil %>
