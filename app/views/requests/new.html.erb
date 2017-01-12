@@ -35,7 +35,7 @@
               <%= label_tag(:whatsapp, "whatsapp") %>
             </div>
             <% end %>
-            <% if current_user.gsm != nil %>
+            <% if current_user.gsm != 0 %>
             <div>
               <%= f.check_box :gsm, {}, value=current_user.gsm%>
               <%= label_tag(:gsm, "gsm") %>
