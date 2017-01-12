@@ -54,10 +54,8 @@ class BooksController < ApplicationController
   end
 
   def destroy
-  end
-
-  def autocomplete
-    render json: Book.search(params[:query], autocomplete: true, limit: 10).map(&:title)
+    @book = Book.destroy(params[:id])
+    redirect_to books_path
   end
 
   def book_params

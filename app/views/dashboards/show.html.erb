@@ -4,17 +4,45 @@
       <p class="show-text-title"><%= "Requête reçue à vous de jouer!" %></p>
       <% @requests_seller.each do |request| %>
       <div class="show-3">
-        <p><%= request.description %></p>
-      </div>
+       <p><%= request.description %></p>
+       <p><%= "Contacte moi sur:" %></p>
+       <% if request.facebook != nil %>
+       <%= link_to "facebook", request.facebook %>
+       <% end %>
+       <% if request.whatsapp != nil %>
+       <p><%= request.whatsapp %></p>
+       <% end %>
+       <% if request.gsm != nil %>
+       <p><%= request.gsm %></p>
+       <% end %>
+       <% if request.email != nil %>
+       <p><%= request.email %></p>
+       <% end %>
+
+     </div>
+     <% end %>
+   </div>
+   <div class="col-xs-12 col-lg-6">
+    <p class="show-text-title"><%= "Requête envoyée en attente d'une reponse" %></p>
+    <% @requests_buyer.each do |request| %>
+    <div class="show-3">
+      <p><%= request.description %></p>
+      <p><%= "En attente, vous avez partagé:" %></p>
+      <p><% if request.facebook != nil %>
+      <span><%= link_to "facebook", request.facebook %></span>
       <% end %>
-    </div>
-    <div class="col-xs-12 col-lg-6">
-      <p class="show-text-title"><%= "Requête envoyée en attente d'une reponse" %></p>
-      <% @requests_buyer.each do |request| %>
-      <div class="show-3">
-        <p><%= request.description %></p>
-      </div>
+      <% if request.whatsapp != nil %>
+      <span class="span"><%= request.whatsapp %></span>
       <% end %>
+      <% if request.gsm != nil %>
+      <span class="span"><%= "gsm:" + " "%><%= request.gsm %></span>
+      <% end %>
+      <% if request.email != nil %>
+      <span class="span"><%= "email:" + " "%><%= request.email %></span>
+      <% end %></p>
+      <%= link_to user_book_request_path(current_user, @book, request), method: :delete do %>delete<% end %>
     </div>
+    <% end %>
   </div>
+</div>
 </div>
