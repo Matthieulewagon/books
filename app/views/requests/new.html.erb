@@ -47,7 +47,7 @@
               </span>
               <% end %>
              <% if current_user.email != "on" %>
-              <span class="span-contact">
+              <span class="span-email">
                 <%= f.check_box :email, {}, value=current_user.email%>
                 <%= label_tag(:email, "email") %>
               </span>
