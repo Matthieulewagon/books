@@ -46,12 +46,14 @@
                 <%= label_tag(:gsm, "gsm") %>
               </span>
               <% end %>
-              <span class="span-email">
+             <% if current_user.email != "on" %>
+              <span class="span-contact">
                 <%= f.check_box :email, {}, value=current_user.email%>
                 <%= label_tag(:email, "email") %>
               </span>
               <% end %>
-            </div>
+              </div>
+              <% end %>
             <% if !user_signed_in? %>
             <div>
               <%= check_box_tag(:gsm) %>

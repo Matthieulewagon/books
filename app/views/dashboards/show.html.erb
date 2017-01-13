@@ -6,13 +6,13 @@
       <div class="show-3">
        <p><%= request.description %></p>
        <p class="tip_typo"><%= "Contactez moi sur:" %></p>
-       <% if request.facebook != nil %>
+       <% if request.facebook != "0" %><% if request.facebook != "on"%>
        <%= link_to "facebook", request.facebook %>
-       <% end %>
-       <% if request.whatsapp != nil %>
+       <% end %><% end %>
+       <% if request.whatsapp != "0" %><% if request.whatsapp != "on"%>
        <p><%= request.whatsapp %></p>
-       <% end %>
-       <% if request.gsm != nil %>
+       <% end %><% end %>
+       <% if request.gsm != 0 %>
        <p><%= request.gsm %></p>
        <% end %>
        <% if request.email != nil %>
@@ -28,13 +28,13 @@
     <div class="show-3">
       <p><%= request.description %></p>
       <p class="tip_typo"><%= "En attente, vous avez partagé:" %></p>
-      <p><% if request.facebook != nil%><% if request.facebook != "on"%>
+      <p><% if request.facebook != "0" %><% if request.facebook != "on"%>
       <span><%= link_to "facebook", request.facebook %></span>
       <% end %><% end %>
-      <% if request.whatsapp != nil%><% if request.whatsapp != "on"%>
+      <% if request.whatsapp != "0" %><% if request.whatsapp != "on"%>
       <span class="span"><%= request.whatsapp %></span>
       <% end %><% end %>
-      <% if request.gsm != nil %>
+      <% if request.gsm != 0 %>
       <span class="span"><%= "gsm:" + " "%><%= request.gsm %></span>
       <% end %>
       <% if request.email != nil %>

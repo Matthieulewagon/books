@@ -9,7 +9,8 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new
-    @request.update_attributes(book_id: params[:book_id], seller_id: params[:user_id], description: params[:request][:description], contact: params[:request][:contact], facebook: params[:request][:facebook], whatsapp: params[:request][:whatsapp], gsm: params[:request][:gsm] , buyer_id: current_user.id)
+    @request.update_attributes(book_id: params[:book_id], seller_id: params[:user_id], description: params[:request][:description], contact: params[:request][:contact], facebook: params[:request][:facebook], whatsapp: params[:request][:whatsapp], gsm: params[:request][:gsm], email: params[:request][:email] , buyer_id: current_user.id)
+    raise
     @request.save!
 
 
