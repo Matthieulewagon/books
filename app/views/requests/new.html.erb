@@ -22,30 +22,36 @@
             <div class="form-group">
               <%= f.input :description, required: true, label: false%>
             </div>
+            <div class="tip_typo">
+              <%= "Tip: Par quelle moyen préféres-tu qu'il te reponde?"%>
+            </div>
             <% if user_signed_in? %>
             <% if current_user.facebook != "on" %>
             <div>
-              <%= f.check_box :facebook, {}, value=current_user.facebook%>
-              <%= label_tag(:facebook, "facebook") %>
+              <span class="span-contact">
+                <%= f.check_box :facebook, {}, value=current_user.facebook%>
+                <%= label_tag(:facebook, "facebook") %>
+              </span>
+              <% end %>
+              <% if current_user.whatsapp != "on" %>
+              <span class="span-contact">
+                <%= f.check_box :whatsapp, {}, value=current_user.whatsapp%>
+                <%= label_tag(:whatsapp, "whatsapp") %>
+              </span>
+              <% end %>
             </div>
-            <% end %>
-            <% if current_user.whatsapp != "on" %>
-            <div>
-              <%= f.check_box :whatsapp, {}, value=current_user.whatsapp%>
-              <%= label_tag(:whatsapp, "whatsapp") %>
+            <div><% if current_user.gsm != 0 %>
+              <span class="span-contact">
+                <%= f.check_box :gsm, {}, value=current_user.gsm%>
+                <%= label_tag(:gsm, "gsm") %>
+              </span>
+              <% end %>
+              <span class="span-email">
+                <%= f.check_box :email, {}, value=current_user.email%>
+                <%= label_tag(:email, "email") %>
+              </span>
+              <% end %>
             </div>
-            <% end %>
-            <% if current_user.gsm != 0 %>
-            <div>
-              <%= f.check_box :gsm, {}, value=current_user.gsm%>
-              <%= label_tag(:gsm, "gsm") %>
-            </div>
-            <% end %>
-            <div>
-              <%= f.check_box :email, {}, value=current_user.email%>
-              <%= label_tag(:email, "email") %>
-            </div>
-            <% end %>
             <% if !user_signed_in? %>
             <div>
               <%= check_box_tag(:gsm) %>

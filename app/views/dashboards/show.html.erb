@@ -5,7 +5,7 @@
       <% @requests_seller.each do |request| %>
       <div class="show-3">
        <p><%= request.description %></p>
-       <p><%= "Contacte moi sur:" %></p>
+       <p class="tip_typo"><%= "Contactez moi sur:" %></p>
        <% if request.facebook != nil %>
        <%= link_to "facebook", request.facebook %>
        <% end %>
@@ -27,7 +27,7 @@
     <% @requests_buyer.each do |request| %>
     <div class="show-3">
       <p><%= request.description %></p>
-      <p><%= "En attente, vous avez partagé:" %></p>
+      <p class="tip_typo"><%= "En attente, vous avez partagé:" %></p>
       <p><% if request.facebook != nil%><% if request.facebook != "on"%>
       <span><%= link_to "facebook", request.facebook %></span>
       <% end %><% end %>
