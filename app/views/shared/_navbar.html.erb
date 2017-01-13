@@ -20,7 +20,9 @@
 <nav class="navbar visible-xs navbar-default navbar-responsiv">
   <div class="navbar-header">
     <a><%=link_to "SweatDeal",root_path, class: "navbar-brand"%></a>
+    <% if user_signed_in?%>
     <a><%= link_to 'logout', destroy_user_session_path,class: "navbar-brand navbar-responsiv-marg", method: :delete %></a>
+    <% end %>
   </div>
   <div class="navbar-header navbar-right">
     <% if !user_signed_in?%>
