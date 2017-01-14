@@ -23,6 +23,7 @@ gem 'carrierwave'
 gem 'cloudinary', '1.1.0'
 gem 'searchkick', '~> 1.3'
 gem 'bonsai-elasticsearch-rails'
+gem 'will_paginate', '~> 3.1.0'
 
 
 group :development, :test do
