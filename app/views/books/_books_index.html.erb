@@ -23,15 +23,14 @@
           ["1 année bac", "2 année bac", "3 année bac", "1 année master", "2 année master"],
           include_blank: "Choisis l'année" %><% end %>
 
-
-
           <span class="btn-search"><%= f.submit "Search", class: "btn btn-darkgreen"%></span>
           <% end %>
           <% end %>
         </div>
 
         <div class="col-xs-12 col-md-8 hidden-xs">
-          <% @books.each do |book| %>
+
+          <%  @books.paginate(:page => params[:page], :per_page => 8).each do |book| %>
           <div class="card">
             <div class="card-left">
               <%= cl_image_tag book.picture, height: 130, width: 130, crop: :fill %>
@@ -53,6 +52,9 @@
             </div>
             <% end %>
           </div>
+          <% @page_results = @books.paginate(:page => params[:page], :per_page => 8) %>
+          <%= will_paginate @page_results %>
+
           <div class="col-xs-12 col-md-8 visible-xs">
           <% @books.each do |book| %>
           <div class="card">
