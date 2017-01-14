@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-lg-6">
       <p class="show-text-title"><%= "Requête reçue à vous de jouer!" %></p>
-      <% @requests_seller.each do |request| %>
+      <% @requests_seller.paginate(:page => params[:page], :per_page => 5).each do |request| %>
       <div class="show-3">
        <p><%= request.description %></p>
        <p class="tip_typo"><%= "Contactez moi sur:" %></p>
@@ -22,9 +22,11 @@
      </div>
      <% end %>
    </div>
+   <% @page_results = @requests_seller.paginate(:page => params[:page], :per_page => 5) %>
+          <%= will_paginate @page_results %>
    <div class="col-xs-12 col-lg-6">
     <p class="show-text-title"><%= "Requête envoyée en attente d'une reponse" %></p>
-    <% @requests_buyer.each do |request| %>
+    <% @requests_buyer.paginate(:page => params[:page], :per_page => 5).each do |request| %>
     <div class="show-3">
       <p><%= request.description %></p>
       <p class="tip_typo"><%= "En attente, vous avez partagé:" %></p>
@@ -44,5 +46,7 @@
     </div>
     <% end %>
   </div>
+  <% @page_results = @requests_buyer.paginate(:page => params[:page], :per_page => 5) %>
+          <%= will_paginate @page_results %>
 </div>
 </div>
