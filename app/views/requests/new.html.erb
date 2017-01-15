@@ -74,6 +74,12 @@
           <div class="show-2">
             <p class="show-text-title">
               <span><%= @user.first_name%></span>
+              <div class="tip_typo">
+              <%= "Tip: Livres de #{@user.first_name} aussi en vente actuellement! "%>
+            </div>
+              <% @user_books.each do |book|%>
+              <p><%= book.title %></p>
+              <% end %>
             </div>
           </div>
         </div>

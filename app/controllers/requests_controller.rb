@@ -4,6 +4,8 @@ class RequestsController < ApplicationController
   def new
     @book = Book.find(params[:book_id])
     @user = User.find(@book.user_id)
+    @books = Book.all
+    @user_books = Book.where(user_id: @user.id)
     @request = Request.new
   end
 
