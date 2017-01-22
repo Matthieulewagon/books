@@ -251,11 +251,11 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
- config.omniauth :facebook, "FB_ID", "FB_SECRET",
+ config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"],
     scope: 'email',
     info_fields: 'email, first_name, last_name',
     image_size: 'square',  # 50x50, guaranteed ratio
-    secure_image_url: true,
+    secure_image_url: true
     scope: 'public_profile',
     info_fields: 'id,link'
   # ==> Warden configuration
