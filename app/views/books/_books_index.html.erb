@@ -52,8 +52,13 @@
             </div>
             <% end %>
           </div>
-          <% @page_results = @books.paginate(:page => params[:page], :per_page => 8) %>
-          <%= will_paginate @page_results %>
+          <div class="digg_pagination">
+            <div class="page_info">
+              <% @page_results = @books.paginate(:page => params[:page], :per_page => 8) %>
+              <%= will_paginate @page_results %>
+            </div>
+          </div>
+
 
           <div class="col-xs-12 col-md-8 visible-xs">
           <% @books.each do |book| %>

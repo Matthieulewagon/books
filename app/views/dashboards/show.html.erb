@@ -19,11 +19,10 @@
        <p><%= request.email %></p>
        <% end %>
 
-     </div>
-     <% end %>
-   </div>
-   <% @page_results = @requests_seller.paginate(:page => params[:page], :per_page => 5) %>
-          <%= will_paginate @page_results %>
+      </div>
+      <% end %>
+    </div>
+
    <div class="col-xs-12 col-lg-6">
     <p class="show-text-title"><%= "Requête envoyée en attente d'une reponse" %></p>
     <% @requests_buyer.paginate(:page => params[:page], :per_page => 5).each do |request| %>
@@ -46,7 +45,11 @@
     </div>
     <% end %>
   </div>
-  <% @page_results = @requests_buyer.paginate(:page => params[:page], :per_page => 5) %>
-          <%= will_paginate @page_results %>
+  <div class="digg_pagination show-float-right">
+    <div class="page_info">
+      <% @page_results = @requests_buyer.paginate(:page => params[:page], :per_page => 5) %>
+      <%= will_paginate @page_results, container: false %>
+    </div>
+  </div>
 </div>
 </div>
