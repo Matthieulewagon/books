@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-lg-5 search-books">
+    <div class="col-xs-12 col-lg-5 hidden-xs search-books">
 
       <%= simple_form_for Book.new,  url: books_path , :method => :get do |f| %>
       <span><div class="padding-right"><%= text_field_tag :query, params[:query], :autofocus => true, placeholder: "Taper le nom du livre recherché", class: "padding-right"%></div></span>
@@ -45,7 +45,7 @@
                 <p><%= book.description %></p>
                 <% if user_signed_in?%>
                 <% if book.user_id == current_user.id %>
-                  <%= link_to "delete", book_path(book), method: :delete %>
+                <%= link_to "delete", book_path(book), method: :delete %>
                 <% end %>
                 <% end %>
               </div>
@@ -60,30 +60,58 @@
           </div>
 
 
-          <div class="col-xs-12 col-md-8 visible-xs">
-          <% @books.each do |book| %>
-          <div class="card">
-            <div class="card-left">
-              <%= cl_image_tag book.picture, height: 130, width: 130, crop: :fill %>
-            </div>
-            <div class="card-right-phone">
-              <a class="text-title"><%= link_to book.title, new_user_book_request_path(@user, book) %></a>
-              <div class="tag-price">
-                <p><%= book.price %>€</p>
-              </div>
-              <p class="text-loaction"><span><%= book.campus %></span>
-                <span class="span"><%= book.year %></span><span class="span">Created <%= time_ago_in_words(book.created_at) %> ago.</span></p>
-                <p><%= book.description %></p>
-                <% if user_signed_in?%>
-                <% if book.user_id == current_user.id %>
-                  <%= link_to "delete", book_path(book), method: :delete %>
+          <div class="col-xs-12 col-lg-5 visible-xs search-books-resp">
+
+            <%= simple_form_for Book.new,  url: books_path , :method => :get do |f| %>
+            <span><div class="padding-right"><%= text_field_tag :query, params[:query], :autofocus => true, placeholder: "Taper le nom du livre recherché", class: "padding-right"%></div></span>
+
+            <span>
+              <% if @books[0] != nil %>
+              <%= f.select :campus,
+              [@books[0].campus, "Louvain la Neuve", "Saint Louis", "ULB" ]
+              %></span>
+              <% else%>
+              <%= f.select :campus,
+              ["Louvain la Neuve", "Saint Louis", "ULB"],
+              include_blank: 'Choisis ton Campus' %><% end %>
+              <span><%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
+                <% if @books[0] != nil %>
+                <%= f.select :year,
+                [@books[0].year, "1 année bac", "2 année bac", "3 année bac", "1 année master", "2 année master" ]%></span>
+                <% else%>
+                <%= f.select :year,
+                ["1 année bac", "2 année bac", "3 année bac", "1 année master", "2 année master"],
+                include_blank: "Choisis l'année" %><% end %>
+
+                <span class="btn-search"><%= f.submit "Search", class: "btn btn-darkgreen"%></span>
                 <% end %>
                 <% end %>
               </div>
+
+              <div class="col-xs-12 col-md-8 visible-xs cards-books-resp">
+                <% @books.each do |book| %>
+                <div class="card">
+                  <div class="card-left">
+                    <%= cl_image_tag book.picture, height: 130, width: 130, crop: :fill %>
+                  </div>
+                  <div class="card-right-phone">
+                    <a class="text-title"><%= link_to book.title, new_user_book_request_path(@user, book) %></a>
+                    <div class="tag-price">
+                      <p><%= book.price %>€</p>
+                    </div>
+                    <p class="text-loaction"><span><%= book.campus %></span>
+                      <span class="span"><%= book.year %></span><span class="span">Created <%= time_ago_in_words(book.created_at) %> ago.</span></p>
+                      <p><%= book.description %></p>
+                      <% if user_signed_in?%>
+                      <% if book.user_id == current_user.id %>
+                      <%= link_to "delete", book_path(book), method: :delete %>
+                      <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
             </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
 
 
