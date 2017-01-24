@@ -18,7 +18,7 @@
        <% if request.email != nil %>
        <p><%= request.email %></p>
        <% end %>
-
+      <%= link_to dashboard_path(book_id: @book.id, request_id: request.id), method: :delete do %>delete<% end %>
       </div>
       <% end %>
     </div>

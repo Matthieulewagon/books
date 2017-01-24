@@ -8,7 +8,10 @@ class DashboardsController < ApplicationController
   end
 
   def destroy
+    @request = Request.find(params[:request_id])
     @request.destroy
+    @book = Book.find(params[:book_id])
+    @book.destroy
   end
 
   def book_params
