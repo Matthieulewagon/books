@@ -1,27 +1,41 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h3 class="sign-up-chgt">Edit <%= "Votre profile" %></h3>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+<%= f.error_notification %>
+<div class="row">
+  <div class="col-xs-12 col-lg-6">
+    <div class= "form-sign-campus"><%= f.select :campus,
+     ["Louvain la Neuve", "Saint Louis", "ULB"],
+     include_blank: 'Choisis ton Campus' %>
+   </div>
+   <div class="form-inputs form-margin">
+     <%= f.input :first_name, label: "Prénom"%>
+     <%= f.input :last_name, label: "Nom"%>
+     <%= f.input :email, autofocus: true %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+     <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+     <% end %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+     <%= f.input :password, autocomplete: "off", placeholder: "Laisser blanc si vous ne voulez pas le changer", required: false %>
+     <%= f.input :password_confirmation, required: false %>
+     <%= f.input :current_password, placeholder: "Votre mot de passe est nécessaire pour enregistrer les changements", required: true %>
+   </div>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+   <div class="form-actions form-margin">
+    <%= f.button :submit, "Update", class: "btn-darkgreen" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
   </div>
-<% end %>
+  <div class="col-xs-12 col-lg-6">
+    <div class="form-inputs form-margin">
+      <div class="tip_typo"><%= " Tip: Rentre en contact avec les autres grâce au(x) moyen(s) que tu choisis !" %></div>
+      <%= f.input :facebook, label: "facebook profile url"%>
+      <%= f.input :whatsapp, label: "whatsapp url"%>
+      <%= f.input :gsm, label: " " + "Gsm", length: {minimum: 5, maximum: 5}%>
+    </div>
+    <h6 class="edit-chgt">Mécontent? <%= link_to "Détruire mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></h6>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  <%= link_to "Back", :back, class: "edit-chgt"%>
+  </div>
+  <% end %>
+</div>

@@ -4,21 +4,21 @@
       <p class="show-text-title"><%= "Requête reçue à vous de jouer!" %></p>
       <% @requests_seller.paginate(:page => params[:page], :per_page => 5).each do |request| %>
       <div class="show-3">
-       <p><%= request.description %></p>
-       <p class="tip_typo"><%= "Contactez moi sur:" %></p>
-       <% if request.facebook != "0" %><% if request.facebook != "on"%>
-       <%= link_to "facebook", request.facebook %>
-       <% end %><% end %>
-       <% if request.whatsapp != "0" %><% if request.whatsapp != "on"%>
-       <p><%= request.whatsapp %></p>
-       <% end %><% end %>
-       <% if request.gsm != 0 %>
-       <p><%= request.gsm %></p>
-       <% end %>
-       <% if request.email != nil %>
-       <p><%= request.email %></p>
-       <% end %>
-      <%= link_to dashboard_path(book_id: @book.id, request_id: request.id), method: :delete do %>delete<% end %>
+        <p><%= request.description %></p>
+        <p class="tip_typo"><%= "En attente, vous avez partagé:" %></p>
+        <p><% if request.facebook != "0" %><% if request.facebook != "on"%>
+        <span><%= link_to "facebook", request.facebook %></span>
+        <% end %><% end %>
+        <% if request.whatsapp != "0" %><% if request.whatsapp != "on"%>
+        <span class="span"><%= request.whatsapp %></span>
+        <% end %><% end %>
+        <% if request.gsm != 0 %>
+        <span class="span"><%= "gsm:" + " "%><%= request.gsm %></span>
+        <% end %>
+        <% if request.email != nil %>
+        <span class="span"><%= "email:" + " "%><%= request.email %></span>
+        <% end %></p>
+        <%= link_to dashboard_path(book_id: @book.id, request_id: request.id), method: :delete do %>delete<% end %>
       </div>
       <% end %>
     </div>

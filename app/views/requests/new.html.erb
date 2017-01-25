@@ -77,7 +77,7 @@
               <div class="tip_typo">
               <%= "Tip: Livres de #{@user.first_name} actuellement en vente ! "%>
             </div>
-              <% @user_books.each do |book|%>
+              <% @user_books.take(5).each do |book|%>
               <p class="color-text"><%= book.title %></p>
               <% end %>
             </div>
