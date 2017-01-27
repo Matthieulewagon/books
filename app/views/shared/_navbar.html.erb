@@ -14,7 +14,7 @@
           <a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a><%=link_to "Gérer mes demandes",dashboard_path, class: "navbar-dropdown"%></a></li>
-            <li><a><%=link_to "Profile",edit_user_registration_path(current_user), class: "navbar-dropdown"%></a></li>
+            <li><a><%=link_to "Profile",user_path(current_user.id), class: "navbar-dropdown"%></a></li>
             <li role="separator" class="divider"></li>
             <li><a><%=link_to "Edit",edit_user_registration_path(current_user), class: "navbar-dropdown"%></a></li>
           </ul>
