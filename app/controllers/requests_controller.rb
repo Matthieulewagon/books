@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   before_action :if_not_sign_up, only: [:create]
+  before_action :authenticate_user!, only: [:create]
 
   def new
     @book = Book.find(params[:book_id])

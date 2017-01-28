@@ -1,4 +1,5 @@
 class DashboardsController < ApplicationController
+  before_action :authenticate_user!
   def show
     @requests_seller = Request.where(seller_id: current_user.id).order(created_at: :desc)
     @requests_buyer = Request.where(buyer_id: current_user.id).order(created_at: :desc)
