@@ -18,7 +18,8 @@
         <% if request.email != nil %>
         <span class="span"><%= "email:" + " "%><%= request.email %></span>
         <% end %></p>
-        <%= link_to dashboard_path(book_id: @book.id, request_id: request.id), method: :delete do %>delete<% end %>
+        <%= link_to user_book_request_path(current_user, @book, request), data: { confirm: "Voulez-vous vraiment détruire la requête faite?" }, method: :delete do %>Pas intéressé par l'offre<% end %>
+        <%= link_to dashboard_path(book_id: @book.id, request_id: request.id),class: "float-right", data: { confirm: "Tout est en ordre ? En confirmant vous allez détruire toutes les rêquetes associées et votre annonce pour ce livre." }, method: :delete do %>Tout est en ordre<% end %>
       </div>
       <% end %>
     </div>
@@ -41,7 +42,7 @@
       <% if request.email != nil %>
       <span class="span"><%= "email:" + " "%><%= request.email %></span>
       <% end %></p>
-      <%= link_to user_book_request_path(current_user, @book, request), method: :delete do %>delete<% end %>
+      <%= link_to user_book_request_path(current_user, @book, request), data: { confirm: "Etes vous sûr de vouloir détruire votre requête?" }, method: :delete do %>delete<% end %>
     </div>
     <% end %>
   </div>

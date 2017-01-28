@@ -8,10 +8,14 @@ class DashboardsController < ApplicationController
   end
 
   def destroy
-    # @request = Request.find(params[:request_id])
-    # @request.destroy
-    # @book = Book.find(params[:book_id])
-    # @book.destroy
+    @request = Request.where(book_id: params[:book_id])
+    @request.each do |request|
+      request.destroy
+    end
+    @book = Book.find(params[:book_id])
+    @book.destroy
+    redirect_to dashboard_path
+
   end
 
   def book_params
