@@ -18,7 +18,7 @@
             <li role="separator" class="divider"></li>
             <li><a><%=link_to "Edit",edit_user_registration_path(current_user), class: "navbar-dropdown"%></a></li>
           </ul>
-
+    <a><%=link_to "Accueil",books_path, class: "navbar-brand"%></a>
 
     <a><%= link_to 'logout', destroy_user_session_path,class: "navbar-brand", method: :delete %></a>
     <% end %>
@@ -29,6 +29,7 @@
   <div class="navbar-header">
     <a><%=link_to "SweatDeal",root_path, class: "navbar-brand navbar-brand-resp"%></a>
     <% if user_signed_in?%>
+    <a><%=link_to "Accueil",books_path, class: "navbar-brand navbar-brand-resp navbar-marg-resp"%></a>
     <a><%= link_to 'logout', destroy_user_session_path,class: "navbar-brand navbar-brand-resp navbar-marg-resp", method: :delete %></a>
     <% end %>
     <% if !user_signed_in?%>

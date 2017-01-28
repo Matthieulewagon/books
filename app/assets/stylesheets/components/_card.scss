@@ -35,6 +35,7 @@ body {
 
 .tag-price {
   float: right;
+  color: #333333;
 }
 
 .span{
@@ -51,21 +52,35 @@ body {
   border-radius: 6px;
   box-shadow: 2px 2px 2px 2px #E3E4E7;
   height: 350px;
+  width: 285px;
   padding: 20px;
-  margin-top: 15px;
+  margin-top: 30px;
 }
 
 .card2-photo {
   padding: 14px;
 }
 
+.card2-row-margin {
+  padding-left: 11%;
+  padding-right: 11%;
+}
+
 .card2-right-phone {
   margin-left: 150px;
+}
+
+.cards2-welcome {
+  margin-left: 23%;
+  color: #7b7777;
 }
 
 
 .tag2-price {
   float: right;
+  color: #333333;
+  font-size: 16px;
+  padding-right: 5%;
 }
 
 
