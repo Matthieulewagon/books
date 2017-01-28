@@ -20,7 +20,7 @@
             <p class="show-text-title"><%= "Envoye une requete" %></p>
             <%= simple_form_for [@user, @book, @request] do |f| %>
             <div class="form-group">
-              <%= f.input :description, maxlength: 70, required: true, label: false, placeholder: "Vous pouvez écrire un petit mot ici "%>
+              <%= f.input :description, maxlength: 70, required: true, label: false, placeholder: "Vous pouvez lui écrire ici "%>
             </div>
             <div class="tip_typo">
               <%= "Tip: Par quelle moyen préféres-tu qu'il te reponde?"%>
@@ -55,14 +55,26 @@
               </div>
               <% end %>
             <% if !user_signed_in? %>
-            <div>
-              <%= check_box_tag(:gsm) %>
-              <%= label_tag(:gsm, "gsm") %>
-            </div>
-            <div>
-              <%= check_box_tag(:email) %>
-              <%= label_tag(:email, "email") %>
-            </div>
+              <div>
+                <span class="span-contact">
+                  <%= check_box_tag(:facebook) %>
+                  <%= label_tag(:facebook, "facebook") %>
+                </span>
+                <span class="span-contact">
+                  <%= check_box_tag(:whatsapp) %>
+                  <%= label_tag(:whatsapp, "whatsapp") %>
+                </span>
+              </div>
+              <div>
+                <span class="span-contact">
+                  <%= check_box_tag(:gsm) %>
+                  <%= label_tag(:gsm, "gsm") %>
+                </span>
+                <span class="span-email">
+                  <%= check_box_tag(:email) %>
+                  <%= label_tag(:email, "email") %>
+                </span>
+              </div>
             <% end %>
             <div class="form-actions form-margin">
               <%= f.button :submit, "send", class: "btn btn-darkgreen" %>

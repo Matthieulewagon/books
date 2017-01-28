@@ -1,32 +1,36 @@
-<h1 class="cards-books">Bienvenu sur ton profile</h1>
+<h1 class="cards2-welcome"><%= "Bienvenue #{@user.first_name} sur ton Profile"%></h1>
+<div class="">
+  <div class="card2-row-margin">
 
-<div class="col-xs-12 col-md-3 hidden-xs cards-books">
+    <%  @books.paginate(:page => params[:page], :per_page => 9).each do |book| %>
+    <div class="col-xs-12 col-md-4">
 
-  <%  @books.paginate(:page => params[:page], :per_page => 8).each do |book| %>
-  <div class="card2">
-  <a class="text-title"><%= link_to book.title, new_user_book_request_path(@user, book) %></a>
-    <div class="card2-photo">
-      <%= cl_image_tag book.picture, height: 180, width: 220, crop: :fill %>
-    </div>
-    <div class="card2-right ">
+      <div class="card2">
+        <a class="text-title"><%= link_to book.title, new_user_book_request_path(@user, book) %></a>
+        <div class="card2-photo">
+          <%= cl_image_tag book.picture, height: 180, width: 220, crop: :fill %>
+        </div>
+        <div class=" ">
 
 
-      <p class="text-loaction"><span class="center"><%= book.campus %></span>
-        <span class="span center"><%= book.year %></span></p>
-        <p class="text-loaction center"><span class="span">Created <%= time_ago_in_words(book.created_at) %> ago.</span></p>
-        <!-- <p><%= book.description %></p> -->
-        <% if user_signed_in?%>
-        <% if book.user_id == current_user.id %>
-        <%= link_to "delete", book_path(book), method: :delete %>
-        <% end %>
-        <% end %>
+          <p class="text-loaction"><span class="center"><%= book.campus %></span>
+            <span class="span center"><%= book.year %></span><span class="span tag2-price"><%= book.price %>€</span></p>
+            <p class="text-loaction center"><span class="span">Created <%= time_ago_in_words(book.created_at) %> ago.</span></p>
+            <!-- <p><%= book.description %></p> -->
+            <% if user_signed_in?%>
+            <% if book.user_id == current_user.id %>
+            <%= link_to "delete", book_path(book), method: :delete %>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
-    <% end %>
-  </div>
-  <div class="digg_pagination">
-    <div class="page_info">
-      <% @page_results = @books.paginate(:page => params[:page], :per_page => 8) %>
-      <%= will_paginate @page_results %>
+      <% end %>
+      <div class="digg_pagination">
+        <div class="page_info">
+          <% @page_results = @books.paginate(:page => params[:page], :per_page => 9) %>
+          <%= will_paginate @page_results %>
+        </div>
+      </div>
     </div>
   </div>

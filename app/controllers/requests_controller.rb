@@ -16,7 +16,7 @@ class RequestsController < ApplicationController
     @request.save!
 
 
-    redirect_to books_path
+    redirect_to dashboard_path
   end
 
   def show
