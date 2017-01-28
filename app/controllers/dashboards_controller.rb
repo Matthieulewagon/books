@@ -15,6 +15,7 @@ class DashboardsController < ApplicationController
     @book = Book.find(params[:book_id])
     @book.destroy
     redirect_to dashboard_path
+
   end
 
   def book_params

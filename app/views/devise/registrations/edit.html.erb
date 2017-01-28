@@ -33,7 +33,6 @@
       <%= f.input :whatsapp, label: "whatsapp url"%>
       <%= f.input :gsm, label: " " + "Gsm", length: {minimum: 5, maximum: 5}%>
     </div>
-    <h6 class="edit-chgt">Mécontent? <%= link_to "Détruire mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></h6>
 
   <%= link_to "Back", :back, class: "edit-chgt"%>
   </div>
