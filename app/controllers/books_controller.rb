@@ -53,8 +53,13 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = Book.destroy(params[:id])
-    redirect_to books_path
+    @request = Request.where(book_id: params[:id])
+    @request.each do |request|
+      request.destroy
+    end
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to user_path
   end
 
   def book_params
