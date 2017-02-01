@@ -17,13 +17,13 @@
 
         <div class="col-xs-12 col-lg-6">
           <div class="show-2">
-            <p class="show-text-title"><%= "Envoye une requete" %></p>
+            <p class="show-text-title"><%= "Envoie une requête" %></p>
             <%= simple_form_for [@user, @book, @request] do |f| %>
             <div class="form-group">
               <%= f.input :description, maxlength: 70, required: true, label: false, placeholder: "Vous pouvez lui écrire ici "%>
             </div>
             <div class="tip_typo">
-              <%= "Tip: Par quelle moyen préféres-tu qu'il te reponde?"%>
+              <%= "Tip: Par quelle moyen préféres-tu fixer ton rdv?"%>
             </div>
             <% if user_signed_in? %>
             <% if current_user.facebook != "on" %>
@@ -86,6 +86,8 @@
           <div class="show-2">
             <p class="show-text-title">
               <span><%= @user.first_name%></span>
+              <%= link_to "#{@user.first_name}", user_path(@book.user_id) %>
+
               <div class="tip_typo">
               <%= "Tip: Livres de #{@user.first_name} actuellement en vente ! "%>
             </div>

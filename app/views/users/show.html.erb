@@ -1,4 +1,10 @@
-<h1 class="cards2-welcome"><%= "Bienvenue #{@user.first_name} sur ton Profile"%></h1>
+<h1 class="cards2-welcome">
+  <% if current_user.id == @user.id %>
+  <%= "Bienvenue #{@user.first_name}, Gère tes livres ici"%></h1>
+  <% end %>
+  <% if current_user.id != @user.id %>
+  <%= "Tous le livres de #{@user.first_name} #{@user.last_name}"%></h1>
+  <% end %>
 <div class="">
   <div class="card2-row-margin">
 
@@ -17,7 +23,7 @@
             <span class="span center"><%= book.year %></span><span class="span tag2-price"><%= book.price %>€</span></p>
             <p class="text-loaction center"><span class="span">Created <%= time_ago_in_words(book.created_at) %> ago.</span></p>
             <!-- <p><%= book.description %></p> -->
-            <% if user_signed_in?%>
+            <% if user_signed_in? %>
             <% if book.user_id == current_user.id %>
             <%= link_to "delete", book_path(book), method: :delete %>
             <% end %>
