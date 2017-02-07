@@ -5,8 +5,9 @@
   <div class="navbar-header navbar-right">
     <% if !user_signed_in?%>
     <a><%=link_to "Vends tes Livres!",new_user_registration_path, class: "navbar-brand"%></a>
-    <a><%=link_to "Sign Up",new_user_registration_path, class: "navbar-brand"%></a>
+    <a><%=link_to "Sign Up",  new_user_registration_path, class: "navbar-brand"%></a>
     <a><%=link_to "Log In",new_user_session_path, class: "navbar-brand"%></a>
+    <a><%=link_to "Mes Livres",facebookconnect_index_path, class: "navbar-dropdown"%></a>
     <% end %>
 
     <% if user_signed_in?%>

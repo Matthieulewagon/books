@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'facebookconnect/index'
+
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
@@ -10,7 +12,6 @@ Rails.application.routes.draw do
     end
 
   end
-
 
 
   resources :books, only: [:show, :edit, :update, :new, :create, :index, :destroy] do
