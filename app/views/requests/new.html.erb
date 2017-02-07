@@ -17,7 +17,7 @@
 
         <div class="col-xs-12 col-lg-6">
           <div class="show-2">
-            <p class="show-text-title"><%= "Dis lui que tu es interessé par son livre" %></p>
+            <p class="show-text-title"><%= "Dis-lui que tu es interessé par son livre" %></p>
             <%= simple_form_for [@user, @book, @request] do |f| %>
             <div class="form-group">
               <%= f.input :description, maxlength: 70, required: true, label: false, placeholder: "Vous pouvez lui écrire ici "%>
