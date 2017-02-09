@@ -1,3 +1,4 @@
+<div>
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
     <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn f-btn' do %>
@@ -6,3 +7,7 @@
       <% end %>
   <% end -%>
 <% end -%>
+</div>
+<div>
+<a><%=link_to "s'enregistrer avec son email",  new_user_registration_path, class: "f-margin-left"%></a>
+</div>

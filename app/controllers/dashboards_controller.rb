@@ -5,6 +5,8 @@ class DashboardsController < ApplicationController
     @requests_buyer = Request.where(buyer_id: current_user.id).order(created_at: :desc)
     if @requests_buyer[0] != nil
       @book = Book.find(@requests_buyer[0].book_id)
+      @seller = User.find(@requests_buyer[0].seller_id)
+      @buyer = User.find(@requests_buyer[0].buyer_id)
     end
   end
 

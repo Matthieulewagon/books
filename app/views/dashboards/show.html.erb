@@ -4,8 +4,10 @@
       <p class="show-text-title"><%= "Requête reçue à vous de jouer!" %></p>
       <% @requests_seller.paginate(:page => params[:page], :per_page => 5).each do |request| %>
       <div class="show-3">
+        <a class="text-title"><%= link_to @book.title, new_user_book_request_path(@seller, @book) %></a>
+        <p><%= "Acheteur : " %><%= @buyer.first_name %></p>
         <p><%= request.description %></p>
-        <p class="tip_typo"><%= "En attente, vous avez partagé:" %></p>
+        <p class="tip_typo"><%= "En attente, on vous a partagé:" %></p>
         <p><% if request.facebook != "0" %><% if request.facebook != "on"%>
         <span><%= link_to "facebook", request.facebook %></span>
         <% end %><% end %>
@@ -15,9 +17,9 @@
         <% if request.gsm != 0 %>
         <span class="span"><%= "gsm:" + " "%><%= request.gsm %></span>
         <% end %>
-        <% if request.email != nil %>
+        <% if request.email != "0" %><% if request.email != "on" %>
         <span class="span"><%= "email:" + " "%><%= request.email %></span>
-        <% end %></p>
+        <% end %><% end %></p>
         <%= link_to user_book_request_path(current_user, @book, request), data: { confirm: "Voulez-vous vraiment détruire la requête faite?" }, method: :delete do %>Pas intéressé par l'offre<% end %>
         <%= link_to dashboard_path(book_id: @book.id, request_id: request.id),class: "float-right", data: { confirm: "Tout est en ordre ? En confirmant vous allez détruire toutes les rêquetes associées et votre annonce pour ce livre." }, method: :delete do %>Livre vendu<% end %>
       </div>
@@ -28,6 +30,8 @@
     <p class="show-text-title"><%= "Requête envoyée en attente d'une reponse" %></p>
     <% @requests_buyer.paginate(:page => params[:page], :per_page => 5).each do |request| %>
     <div class="show-3">
+      <a class="text-title"><%= link_to @book.title, new_user_book_request_path(@seller, @book) %></a>
+      <p><%= "Vendeur : " %><%= @seller.first_name %></p>
       <p><%= request.description %></p>
       <p class="tip_typo"><%= "En attente, vous avez partagé:" %></p>
       <p><% if request.facebook != "0" %><% if request.facebook != "on"%>
