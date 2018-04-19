@@ -300,7 +300,7 @@ DEPENDENCIES
   devise
   figaro
   font-awesome-sass
-  jbuilder (~> 2.0)
+  jbuilder (~> 2.5)
   jquery-rails
   launchy
   listen (~> 3.0.5)
