@@ -3,9 +3,9 @@ ruby '2.3.1'
 
 gem 'rails', '5.0.0.1'
 gem 'puma'
-gem 'pg'
+gem 'pg', '~> 0.21'
 gem 'figaro'
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'redis'
 gem 'rails_12factor', group: :production
