@@ -5,6 +5,13 @@
   text-align: center;
 }
 
+.homepage-content-phone {
+  position: relative;
+  min-height: calc(100vh - 195px);
+  overflow: auto;
+  text-align: center;
+}
+
 .homepage-search {
   position: absolute;
   top: 240px;
@@ -44,4 +51,16 @@
   margin-left: 20%;
   margin-top: 40%;
   color: grey;
+}
+
+.homepage-button {
+    background-color: #53b7b7 !important;
+    border: none;
+    color: white !important;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin-bottom: 30%;
 }
