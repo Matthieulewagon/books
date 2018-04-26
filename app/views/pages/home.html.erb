@@ -48,7 +48,15 @@
   </div>
 </div>
 
-<div class="visible-xs">
-  <p class="homepage-button text-center">Achètes et Vends tes livres ici !</h1>
+<div class="visible-xs homepage-text">
+  <p class=" text-center">StudEbook est la platforme étudiante de reventes de livres de cours optimisée par les étudiants pour les étudiants.</p>
+  <p class="x_MsoNormal">&nbsp;</p>
+  <% if !user_signed_in?%>
+  <p><%=link_to "Achètes et Vends tes livres ici !", facebookconnect_index_path, class: "homepage-button text-center"%></p>
+  <% end %>
+  <% if user_signed_in?%>
+  <%=link_to "Achètes tes livres ici !",books_path, class: "homepage-button text-center"%>
+  <% end %>
+  <!-- <p class="homepage-button text-center">Achètes et Vends tes livres ici !</p> -->
   </div>
 

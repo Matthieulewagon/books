@@ -7,7 +7,7 @@
 
 .homepage-content-phone {
   position: relative;
-  min-height: calc(100vh - 195px);
+  min-height: 277px;
   overflow: auto;
   text-align: center;
 }
@@ -53,14 +53,23 @@
   color: grey;
 }
 
-.homepage-button {
-    background-color: #53b7b7 !important;
+.homepage-text {
+    background-color: #209485 !important;
     border: none;
-    color: white !important;
+    color: white;
+    padding: 32px 25px;
+    text-align: center;
+    font-size: 18px;
+    height: 248px;
+}
+
+.homepage-button {
+    background-color: #ffffff !important;
+    border: none;
+    margin-top: 7% !important;
     padding: 15px 25px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 24px;
-    margin-bottom: 30%;
+    font-size: 18px;
+    height: 70px;
+    color: #209485 !important;
 }
