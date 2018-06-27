@@ -1,47 +1,62 @@
-<div class="homepage-content ">
+<div class="homepage-content hidden-xs">
   <div class="homepage-photo center-block hidden-xs" style="background-image: url('http://res.cloudinary.com/sweetdeal2016/image/upload/v1518347273/Studentsbackground_rklus4.jpg');">
+    <div class="">
 
-    <h1 class="head-home hidden-xs">Optimise ton temps et ton argent sur StudEbook la plateforme de livres étudiants! </h1>
-    <h5 class="head-home-xs visible-xs">Optimise ton temps et ton argent sur StudEbook la platforme de livres étudiants! </h5>
+      <h1 class="head-home hidden-xs">Optimise ton temps et ton argent sur StudEbook la plateforme de livres étudiants! </h1>
 
-    <div class="row">
-  <div class="col l4">
-    <%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
-    <%= f.select :campus,
+      <div class="row">
+        <div class="col l4">
+          <%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
+          <%= f.select :campus,
           ["Louvain la Neuve", "Saint Louis", "ULB"],
           include_blank: 'Choisis ton Campus' %>
-    <%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
-    <%= f.select :year,
+          <%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
+          <%= f.select :year,
           ["1 année bac", "2 année bac", "3 année bac", "1 année master", "2 année master"],
           include_blank: "Choisis l'année" %>
-    <%= f.submit "Search", class: 'btn btn-home' %>
-    <% end %>
-    <% end %>
-  </div>
-  </div>
-  </div>
-  <!-- phone part -->
-  <div class="homepage-photo2 center-block visible-xs" style="background-image: url('http://res.cloudinary.com/sweetdeal2016/image/upload/v1518269321/dawn_u9c2xo.jpg');">
-  <!-- /assets/dawn.jpg -->
-
-
-    <h1 class="head-home hidden-xs">Optimise ton temps et ton argent sur SweatDeal la platforme de livres etudiants! </h1>
-    <h5 class="head-home-xs visible-xs">Optimise ton temps et ton argent sur SweatDeal la platforme de livres etudiants! </h5>
-
-    <div class="row">
-  <div class="col l4">
-    <%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
-    <%= f.select :campus,
-          ["Louvain la Neuve", "Saint Louis", "ULB"],
-          include_blank: 'Choisis ton Campus' %>
-    <%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
-    <%= f.select :year,
-          ["1 année bac", "2 année bac", "3 année bac", "1 année master", "2 année master"],
-          include_blank: "Choisis l'année" %>
-    <%= f.submit "Search", class: 'btn btn-home' %>
-    <% end %>
-    <% end %>
-  </div>
-  </div>
+          <%= f.submit "Search", class: 'btn btn-home' %>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+<div class="homepage-content-phone visible-xs">
+  <!-- phone part -->
+  <div class="homepage-photo2 center-block visible-xs" style="background-image: url('http://res.cloudinary.com/sweetdeal2016/image/upload/v1518269321/dawn_u9c2xo.jpg');">
+    <!-- /assets/dawn.jpg -->
+
+
+    <h5 class="head-home-xs visible-xs">Optimise ton temps et ton argent sur StudEbook la platforme de livres etudiants! </h5>
+
+    <div class="row">
+      <div class="col l4">
+        <%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
+        <%= f.select :campus,
+        ["Louvain la Neuve", "Saint Louis", "ULB"],
+        include_blank: 'Choisis ton Campus' %>
+        <%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
+        <%= f.select :year,
+        ["1 année bac", "2 année bac", "3 année bac", "1 année master", "2 année master"],
+        include_blank: "Choisis l'année" %>
+        <%= f.submit "Search", class: 'btn btn-home' %>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="visible-xs homepage-text">
+  <p class=" text-center">StudEbook est la platforme étudiante de reventes de livres de cours optimisée par les étudiants pour les étudiants.</p>
+  <p class="x_MsoNormal">&nbsp;</p>
+  <% if !user_signed_in?%>
+  <p><%=link_to "Achètes et Vends tes livres ici !", facebookconnect_index_path, class: "homepage-button text-center"%></p>
+  <% end %>
+  <% if user_signed_in?%>
+  <%=link_to "Achètes tes livres ici !",books_path, class: "homepage-button text-center"%>
+  <% end %>
+  <!-- <p class="homepage-button text-center">Achètes et Vends tes livres ici !</p> -->
+  </div>
+

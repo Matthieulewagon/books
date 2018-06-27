@@ -13,10 +13,13 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new
     @request.update_attributes(book_id: params[:book_id], seller_id: params[:user_id], description: params[:request][:description], contact: params[:request][:contact], facebook: params[:request][:facebook], whatsapp: params[:request][:whatsapp], gsm: params[:request][:gsm], email: params[:request][:email] , buyer_id: current_user.id)
-    @request.save!
-
-
-    redirect_to dashboard_path
+    if (@request.facebook == "on" && current_user.facebook.nil?)|| (@request.gsm == "on" && current_user.gsm.nil?) || (@request.email == "on" && current_user.email.nil?)
+      @request.destroy
+      redirect_to edit_user_registration_path
+    else
+      @request.save!
+      redirect_to dashboard_path
+    end
   end
 
   def show
