@@ -5,36 +5,38 @@
 <div class="row">
   <div class="col-xs-12 col-lg-6">
     <div class= "form-sign-campus"><%= f.select :campus,
-     ["Louvain la Neuve", "Saint Louis", "ULB"],
-     include_blank: 'Choisis ton Campus' %>
-   </div>
-   <div class="form-inputs form-margin">
-     <%= f.input :first_name, label: "Prénom"%>
-     <%= f.input :last_name, label: "Nom"%>
-     <%= f.input :email, autofocus: true %>
-
-     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-     <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-     <% end %>
-
-     <%= f.input :password, autocomplete: "off", placeholder: "Laisser blanc si vous ne voulez pas le changer", required: false %>
-     <%= f.input :password_confirmation, required: false %>
-     <%= f.input :current_password, placeholder: "Votre mot de passe est nécessaire pour enregistrer les changements", required: true %>
-   </div>
-
-   <div class="form-actions form-margin">
-    <%= f.button :submit, "Update", class: "btn-darkgreen" %>
+    ["Louvain la Neuve", "Saint Louis", "ULB"],
+    include_blank: 'Choisis ton Campus' %>
   </div>
-  </div>
-  <div class="col-xs-12 col-lg-6">
-    <div class="form-inputs form-margin">
+  <div class="form-inputs form-margin">
+   <%= f.input :first_name, label: "Prénom"%>
+   <%= f.input :last_name, label: "Nom"%>
+   <%= f.input :email, autofocus: true %>
+
+   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+   <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+   <% end %>
+ </div>
+
+</div>
+<div class="col-xs-12 col-lg-6">
+  <div class="form-inputs form-margin">
+    <div style="margin-top:46px;">
       <div class="tip_typo"><%= " Tip: Rentre en contact avec les autres grâce au(x) moyen(s) que tu choisis !" %></div>
-      <%= f.input :facebook, label: "facebook profile url"%>
-      <%= f.input :whatsapp, label: "whatsapp url"%>
+      <div class="form-margin-log" style="margin-left: -13px;"><%= render "devise/shared/links" %></div>
       <%= f.input :gsm, label: " " + "Gsm", length: {minimum: 5, maximum: 5}%>
+      <%= f.input :current_password, placeholder: "Votre mot de passe est nécessaire pour enregistrer les changements", required: true %>
     </div>
+  </div>
 
-  <%= link_to "Back", :back, class: "edit-chgt"%>
+  <div class="form-actions form-margin">
+  <%= f.button :submit, "Update", class: "btn-darkgreen" %>
+</div>
+  <div style="margin-left: 48px;margin-top:50px;">
+    <div class="tip_typo "><%= " Tip: Uniquement si tu désires changer ton mot de passe !" %></div>
+    <%= f.input :password, autocomplete: "off", placeholder: "Laisser blanc si vous ne voulez pas le changer", required: false %>
+    <%= f.input :password_confirmation, required: false %></div>
+    <%= link_to "Back", :back, class: "edit-chgt"%>
   </div>
   <% end %>
 </div>
