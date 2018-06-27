@@ -28,9 +28,9 @@
   <div class="navbar-header">
     <a><%=link_to "StudEbook",root_path, class: "navbar-brand"%></a>
   </div>
-  <div class="navbar-header navbar-right">
+  <div class="navbar-header navbar-right-phone">
     <% if !user_signed_in?%>
-    <a href="#" class="navbar-brand dropdown-toggle navbar-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= "Sign up" %> <span class="caret"></span></a>
+    <a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= "Sign up" %> <span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a><%=link_to "Vends tes Livres!", facebookconnect_index_path, class: "navbar-dropdown"%></a></li>
       <li><a><%=link_to "Sign Up",  facebookconnect_index_path, class: "navbar-dropdown"%></a></li>
@@ -39,7 +39,7 @@
     <% end %>
 
     <% if user_signed_in?%>
-    <a href="#" class="navbar-brand dropdown-toggle navbar-right" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %> <span class="caret"></span></a>
+    <a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %> <span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a><%=link_to "Accueil",books_path, class: "navbar-dropdown"%></a></li>
       <li><a><%=link_to "Mes Livres",user_path(current_user.id), class: "navbar-dropdown"%></a></li>
