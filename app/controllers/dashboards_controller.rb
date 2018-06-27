@@ -3,12 +3,19 @@ class DashboardsController < ApplicationController
   def show
     @requests_seller = Request.where(seller_id: current_user.id).order(created_at: :desc)
     @requests_buyer = Request.where(buyer_id: current_user.id).order(created_at: :desc)
+    # prend tjs le meme id de livre etc
     if @requests_buyer[0] != nil
-      @book = Book.find(@requests_buyer[0].book_id)
-      @seller = User.find(@requests_buyer[0].seller_id)
-      @buyer = User.find(@requests_buyer[0].buyer_id)
+      # @book_buyer = Book.find(@requests_buyer[0].book_id)
+      # @seller = User.find(@requests_buyer[0].seller_id)
+      # @buyer = User.find(@requests_buyer[0].buyer_id)
+    end
+    if @requests_seller[0] != nil
+      # @book_seller = Book.find(@requests_seller[0].book_id)
+      # @seller = User.find(@requests_seller[0].seller_id)
+      # @buyer = User.find(@requests_seller[0].buyer_id)
     end
   end
+
 
   def destroy
     @request = Request.where(book_id: params[:book_id])
