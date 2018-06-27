@@ -2,26 +2,28 @@
 <div class="container">
  <div class="row">
   <div class="col l4">
-    <%= simple_form_for Book.new do |f| %>
-    <%= f.error_notification %>
-    <%= f.select :campus,
-          [current_user.campus, "Louvain la Neuve", "Saint Louis", "ULB"],
-          required: true, include_blank: 'Choisis le Campus' %>
-    <%= f.select :year,
-          ["1 année bac", "2 année bac", "3 année bac", "1 année master", "2 année master"],
-          include_blank: "Choisis l'année", required: true%>
-    <%= f.input :title, required: true, label: "Titre", placeholder: "Titre du livre ex: 'droit constitutionelle'"%>
-    <%= f.input :description, required: true, label: "Etat", placeholder: "Description courte de l'état du livre"%>
-    <%= f.input :price, required: true, label: "Prix", placeholder: "Prix du livre, ex: 35"%>
-    <%= f.label :picture do %>
-        <%= f.file_field :picture %>
-        <%= f.hidden_field :picture_cache %>
-        <% end %>
+    <div style="margin-left:22px;">
+      <%= simple_form_for Book.new do |f| %>
+      <%= f.error_notification %>
+      <%= f.select :campus,
+      [current_user.campus, "Louvain la Neuve", "Saint Louis", "ULB"],
+      required: true, include_blank: 'Choisis le Campus' %>
+      <%= f.select :year,
+      ["1 année bac", "2 année bac", "3 année bac", "1 année master", "2 année master"],
+      include_blank: "Choisis l'année", required: true%>
+      <%= f.input :title, required: true, label: "Titre", placeholder: "Titre du livre ex: 'droit constitutionelle'"%>
+      <%= f.input :description, required: true, label: "Etat", placeholder: "Description courte de l'état du livre"%>
+      <%= f.input :price, required: true, label: "Prix", placeholder: "Prix du livre, ex: 35"%>
+      <%= f.label :picture do %>
+      <%= f.file_field :picture %>
+      <%= f.hidden_field :picture_cache %>
+      <% end %>
     </div>
-
-
-    <%= f.submit "Creer l'annonce", class: 'btn btn-home' %>
-  <% end %>
   </div>
+  <div style="margin-left:22px;">
+    <%= f.submit "Creer l'annonce", class: 'btn btn-home' %>
+  </div>
+  <% end %>
+</div>
 </div>
 

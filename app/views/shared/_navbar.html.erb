@@ -30,9 +30,12 @@
   </div>
   <div class="navbar-header navbar-right">
     <% if !user_signed_in?%>
-    <a><%=link_to "Vends tes Livres!", facebookconnect_index_path, class: "navbar-brand"%></a>
-    <a><%=link_to "Sign Up",  facebookconnect_index_path, class: "navbar-brand"%></a>
-    <a><%=link_to "Log In",new_user_session_path, class: "navbar-brand"%></a>
+    <a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= "Sign up" %> <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><a><%=link_to "Vends tes Livres!", facebookconnect_index_path, class: "navbar-dropdown"%></a></li>
+      <li><a><%=link_to "Sign Up",  facebookconnect_index_path, class: "navbar-dropdown"%></a></li>
+      <li><a><%=link_to "Log In",new_user_session_path, class: "navbar-dropdown"%></a></li>
+    </ul>
     <% end %>
 
     <% if user_signed_in?%>
