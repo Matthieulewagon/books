@@ -28,7 +28,7 @@
   <div class="navbar-header">
     <a><%=link_to "StudEbook",root_path, class: "navbar-brand"%></a>
   </div>
-  <div class="navbar-right-phone">
+  <div class="navbar-header navbar-right-phone">
     <% if !user_signed_in?%>
     <a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= "Sign up" %> <span class="caret"></span></a>
     <ul class="dropdown-menu">
