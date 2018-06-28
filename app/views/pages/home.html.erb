@@ -5,7 +5,7 @@
       <h1 class="head-home hidden-xs">Optimise ton temps et ton argent sur StudEbook la plateforme de livres étudiants! </h1>
 
       <div class="row">
-        <div class="col l4">
+        <div class="col l4 ">
           <%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
           <%= f.select :campus,
           ["Louvain la Neuve", "Saint Louis", "ULB"],
@@ -31,7 +31,7 @@
     <h5 class="head-home-xs visible-xs">Optimise ton temps et ton argent sur StudEbook la platforme de livres etudiants! </h5>
 
     <div class="row">
-      <div class="col l4">
+      <div class="col l4" style="margin-left:10px;">
         <%= simple_form_for Book.new, url: books_path, html: { method: :get } do |f| %>
         <%= f.select :campus,
         ["Louvain la Neuve", "Saint Louis", "ULB"],
