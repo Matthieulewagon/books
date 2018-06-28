@@ -6,4 +6,12 @@
     <%= render "devise/shared/link_facebook" %>
   <% end %>
 </div>
+<div class="f-background center-block visible-xs" style="background-image: url('http://res.cloudinary.com/sweetdeal2016/image/upload/v1518347273/book-faceb_nr8kif.jpg');">
+  <h1 class="f-title-phone">Vends et Achète des livres étudiants</h1>
+  <h1 class="f-hint-phone">Optimise ton temps et ton argent sur StudEbook !</h1>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+    <%= render "devise/shared/link_facebook" %>
+  <% end %>
+</div>
 

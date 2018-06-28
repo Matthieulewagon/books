@@ -1,13 +1,31 @@
-<div>
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
+<div class="hidden-xs">
+  <div>
+    <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
     <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn f-btn' do %>
-        <i class="fa fa-facebook f-margin-right" ></i>
-        Connecte-toi avec Facebook<br>
-      <% end %>
-  <% end -%>
-<% end -%>
+    <i class="fa fa-facebook f-margin-right" ></i>
+    Connecte-toi avec Facebook<br>
+    <% end %>
+    <% end -%>
+    <% end -%>
+  </div>
+  <div>
+    <a><%=link_to "s'enregistrer avec son email",  new_user_registration_path, class: "f-margin-left"%></a>
+  </div>
 </div>
-<div>
-<a><%=link_to "s'enregistrer avec son email",  new_user_registration_path, class: "f-margin-left"%></a>
+<!-- phone part -->
+<div class="visible-xs">
+  <div>
+    <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn f-btn-phone' do %>
+    <i class="fa fa-facebook f-margin-right" ></i>
+    Connecte-toi avec Facebook<br>
+    <% end %>
+    <% end -%>
+    <% end -%>
+  </div>
+  <div>
+    <a><%=link_to "s'enregistrer avec son email",  new_user_registration_path, class: "f-margin-left-phone"%></a>
+  </div>
 </div>
